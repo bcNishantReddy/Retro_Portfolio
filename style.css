@@ -1,0 +1,508 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #87CEEB;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    height: 100vh;
+    cursor: url('assets/retro-cursor.png'), auto;
+    /* Retro cursor */
+    font-size: clamp(16px, 2vw, 22px);
+    /* Font adjusts with screen size */
+}
+
+.mario-bg {
+    position: relative;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar - retro-styled and positioned on the top-right */
+.navbar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* Initially hidden */
+    background-color: #8B4513;
+    border: 4px solid yellow;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 999;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: right 0.3s ease;
+}
+
+.navbar.open {
+    right: 0;
+    /* Show navbar */
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar a {
+    color: yellow;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: red;
+}
+
+/* Navbar toggle button (icon) */
+.nav-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #FF4500;
+    border: 4px solid yellow;
+    border-radius: 10px;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Button right below the retro box */
+
+.retro-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #FF4500;
+    /* Retro orange-red button */
+    border: 4px solid yellow;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.retro-button:hover {
+    transform: scale(1.1);
+    background-color: red;
+}
+
+/* Retro Box */
+.retro-box {
+    background-color: #8B4513;
+    /* Brown retro box */
+    padding: 20px 40px;
+    border: 4px solid yellow;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    z-index: 999;
+}
+
+.retro-box h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* Name inside the retro-styled box */
+.main-title {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    /* Dynamic font size based on viewport */
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Styled like Mario Game Options */
+.retro-item {
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
+    /* Dynamic font size */
+    color: yellow;
+    margin-top: 2em;
+}
+
+/* Social Links in a Straight Line */
+.socials {
+    margin-top: 20px;
+}
+
+.socials a {
+    color: yellow;
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.socials a:hover {
+    color: red;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    z-index: 1050;
+}
+
+.loading-text {
+    animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Page Titles */
+.page-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    /* Dynamic font size */
+    color: yellow;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    margin-bottom: 2.5em !important;
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: clamp(40px, 5vw, 80px);
+    /* Dynamic padding */
+    margin-top: 20px;
+    background-color: #4CAF50;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    position: relative;
+    text-align: left;
+
+}
+
+/* Ensuring proper alignment for content within sections */
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.section p,
+.section ul {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    /* Dynamic font size */
+    color: white;
+    margin-top: 3em;
+
+}
+
+.section h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    /* Dynamic font size */
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+/* Project Titles */
+.project {
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    /* Dynamic font size */
+    cursor: pointer;
+    color: yellow;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.bitez {
+    margin-top: 4em;
+}
+
+.project:hover {
+    color: red;
+}
+
+/* Project content container, hidden by default */
+.project-content {
+    display: none;
+    background-color: #8B4513;
+    border: 4px solid yellow;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    animation: expandBox 0.5s ease-in-out;
+}
+
+/* Retro frame for video */
+.retro-frame {
+    padding: 10px;
+    border: 4px solid yellow;
+    background-color: black;
+    margin-top: 10px;
+}
+
+/* Wrapper to make the iframe responsive */
+.project-frame {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    background-color: black;
+    /* Optional: Add a retro frame color */
+    border: 4px solid yellow;
+    /* Optional: Retro-style border */
+    border-radius: 10px;
+    /* Optional: Rounded corners for the retro look */
+    overflow: hidden;
+    /* Ensure that iframe fits perfectly */
+    aspect-ratio: 16 / 9;
+    /* Aspect ratio for most videos (YouTube) */
+}
+
+.project-video-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* Remove the default iframe border */
+}
+
+
+/* Animation for expanding the project box */
+@keyframes expandBox {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .retro-box {
+        width: auto;
+        padding: 15px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .retro-item {
+        font-size: 1.6rem;
+    }
+
+    .socials a {
+        font-size: 1rem;
+        margin-right: 15px;
+    }
+
+    .retro-button {
+        font-size: 1.2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        left: 10%;
+    }
+
+    .section-content {
+        padding: 10px;
+    }
+
+    .navbar {
+        top: 5px;
+        right: 5px;
+    }
+
+    .project-item {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 5px;
+        right: -300px;
+        /* Initially hidden */
+        transition: right 0.3s ease;
+        /* Smooth opening */
+    }
+
+    .navbar.open {
+        right: 0;
+        /* Opens from the right */
+    }
+
+    .nav-icon {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-icon img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.project-margin {
+    margin-top: 2em;
+}
+
+/* Snow container for the snowflakes */
+.snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Full screen height */
+    pointer-events: none;
+    z-index: 2;
+    /* Behind the retro box but in front of the blue background */
+    overflow: hidden;
+}
+
+/* Snowflake */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    /* Pixelated look */
+    border-radius: 2px;
+    /* Slightly round edges for a retro vibe */
+    animation: fall linear infinite;
+}
+
+/* Snowfall animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Retro blinking effect for numbers */
+.blinking-number {
+    color: rgb(250, 89, 25);
+    animation: blink 1s step-start infinite;
+}
+
+/* Blinking animation */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Retro-style profile picture box */
+.retro-profile-box {
+    background-color: #8B4513;
+    /* Retro brown color */
+    border: 4px solid yellow;
+    /* Retro yellow border */
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    /* Adjust the size of the box */
+    text-align: center;
+    position: absolute;
+    /* Position it on the right side */
+    top: 20%;
+    right: 25%;
+}
+
+/* Profile picture inside the retro box */
+.profile-pic {
+    width: 100%;
+    /* Ensure the image fits within the retro box */
+    height: auto;
+    border-radius: 10px;
+    /* Optional: Slightly round the corners */
+}
+
+/* Optional: Add a title inside the retro box */
+.box-title {
+    font-size: 1.5rem;
+    color: yellow;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .retro-profile-box {
+        position: relative;
+        width: 100%;
+        max-width: 250px;
+        margin: 20px auto;
+        right: auto;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 150px;
+        /* Adjust size of the picture for smaller screens */
+    }
+}
